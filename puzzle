@@ -1,0 +1,73 @@
+ public void expandir(Estado actual){
+        Estado opcion;
+        ArrayList<Integer> movimiento;
+        ArrayList<Nodo> arrayAuxliar,arraydeCambio;
+        int posicion;
+        arrayAuxliar = actual.getData();
+        arraydeCambio= actual.getData();
+        posicion = actual.getElemento(); //busca x;
+        
+        movimiento = new ArrayList<Integer>();
+        if(posicion==0){
+           movimiento.add(1);
+           movimiento.add(3);
+        }
+        if(posicion==1){
+           movimiento.add(0);
+           movimiento.add(2);
+           movimiento.add(4);
+        }
+        if(posicion==2){
+           movimiento.add(1);
+           movimiento.add(5);
+        }
+        if(posicion==3){
+           movimiento.add(0);
+           movimiento.add(4);
+        }
+        if(posicion==4){
+           movimiento.add(1);
+           movimiento.add(3);
+           movimiento.add(5);
+           movimiento.add(7);
+        }
+        if(posicion==5){
+           movimiento.add(2);
+           movimiento.add(4);
+           movimiento.add(8);
+        }
+        if(posicion==6){
+           movimiento.add(3);
+           movimiento.add(7);
+        }
+        if(posicion==7){
+           movimiento.add(4);
+           movimiento.add(6);
+           movimiento.add(8);
+        }
+        if(posicion==8){
+           movimiento.add(5);
+           movimiento.add(7);
+        }
+        
+        System.out.println("Posicion "+posicion);
+        System.out.println("Largo de array "+arrayAuxliar.size());
+        System.out.println("Movimiento "+movimiento.get(1));
+            for(int i=0 ; i < arrayAuxliar.size() ; i++){
+                System.out.println("Movimiento "+movimiento.get(i));
+                arrayAuxliar.set(movimiento.get(i),arraydeCambio.get(posicion)); 
+                arrayAuxliar.set(posicion,arraydeCambio.get(movimiento.get(i)));
+                opcion = new Estado(arrayAuxliar,actual,"cambia N De la p.["+posicion+"] a la p["+movimiento.get(i)+"]"); 
+                System.out.println(opcion.getMovimiento());
+                abierto.add(opcion);
+                arrayAuxliar=actual.getData();
+            }
+        
+       System.out.println("termina iteracion "+posicion);
+    }
+
+
+
+        
+        
+    }
