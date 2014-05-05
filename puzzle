@@ -46,7 +46,7 @@ public class Estado {
     public ArrayList<Nodo> getDer() {
         return der;
     }
-
+    //el patrick se la come
     public ArrayList<Nodo> getBote() {
         return bote;
     }
